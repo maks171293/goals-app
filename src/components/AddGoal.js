@@ -41,7 +41,7 @@ class AddGoal extends React.Component{
 function mapStateToProps(state){
   console.log(state)
   return {
-    email: state.email
+    email: state.user.email
   }
 }
 

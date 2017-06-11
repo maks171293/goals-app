@@ -3,6 +3,7 @@ import {firebaseApp} from '../firebase';
 import {connect} from 'react-redux';
 import AddGoal from './AddGoal';
 import GoalList from './GoalList';
+import CompleteGoalsList from './CompleteGoalsList';
 
 class App extends React.Component{
   signOut(){
@@ -10,10 +11,16 @@ class App extends React.Component{
   }
   render(){
     return (
-      <div>
-        <h3>Задачи</h3>
+      <div style={{margin:'5%'}}>
+        <h3>Список Задач</h3>
         <AddGoal />
+        <hr/>
+        <h3>Задачи</h3>
         <GoalList />
+        <hr/>
+        <h3>Выполненые задачи</h3>
+        <CompleteGoalsList />
+        <hr/>
         <button
           className="btn btn-warning"
           onClick={this.signOut.bind(this)}>
@@ -26,7 +33,7 @@ class App extends React.Component{
 
 function mapStateToProps(state){
   return {
-    email: state.email
+    email: state.user.email
   }
 }
 
